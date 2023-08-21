@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\DashboardController;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin/login', [AdminController::class,'adminLogin']);
+Route::get('admin/login', [AdminController::class,'adminLogin'])->name('admin.login');
+Route::group(['middleware'=> 'admin'],function(){
+    Route::get('admin/dashboard', [DashboardController::class,'adminDashboard'])->name('admin.dashboard');
+
+});
 
 Auth::routes();
 

@@ -17,11 +17,12 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <form action="#" class="mt-5" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name="email">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" name="password">
                     </div>
